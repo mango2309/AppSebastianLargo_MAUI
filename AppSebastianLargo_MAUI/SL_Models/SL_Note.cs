@@ -8,5 +8,8 @@ namespace AppSebastianLargo_MAUI.SL_Models
 {
     internal class SL_Note
     {
+        public string? Filename { get; set; }
+        public string? Text { get; set; }
+        public DateTime Date { get; set; }
     }
 }
