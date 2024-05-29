@@ -1,4 +1,4 @@
-namespace AppSebastianLargo_MAUI;
+namespace AppSebastianLargo_MAUI.Views;
 
 public partial class SL_NotePage : ContentPage
 {

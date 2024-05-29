@@ -70,16 +70,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="SL_AboutPage.xaml.cs">
+	  <Compile Update="Views\SL_AboutPage.xaml.cs">
 	    <DependentUpon>SL_AboutPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="SL_AboutPage.xaml">
+	  <MauiXaml Update="Views\SL_AboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="SL_NotePage.xaml">
+	  <MauiXaml Update="Views\SL_NotePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
