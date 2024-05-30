@@ -9,6 +9,10 @@ public partial class AboutPage_SL : ContentPage
 
     private async void LearnMore_Clicked(object sender, EventArgs e)
     {
-        await Launcher.Default.OpenAsync("https://aka.ms/maui");
+		if (BindingContext is SL_Models.SL_About about)
+		{
+			await Launcher.Default.OpenAsync("https://aka.ms/maui");
+		}
+			
     }
 }
