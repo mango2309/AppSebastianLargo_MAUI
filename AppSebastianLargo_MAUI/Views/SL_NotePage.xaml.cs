@@ -1,5 +1,6 @@
 namespace AppSebastianLargo_MAUI.Views;
 
+[QueryProperty(nameof(ItemId), nameof(ItemId))]
 public partial class SL_NotePage : ContentPage
 {
     string _fileName = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
@@ -14,20 +15,30 @@ public partial class SL_NotePage : ContentPage
 		LoadNote(Path.Combine(appDataPath, randomFileName));
 	}
 
-    private void SaveButton_Clicked(object sender, EventArgs e)
-    {
-        // Save the file.
-        File.WriteAllText(_fileName, TextEditor.Text);
-    }
+	public string ItemId
+	{
+		set { LoadNote(value); }
+	}
 
-    private void DeleteButton_Clicked(object sender, EventArgs e)
-    {
-        // Delete the file.
-        if (File.Exists(_fileName))
-            File.Delete(_fileName);
+	private async void SaveButton_Clicked(object sender, EventArgs e)
+	{
+		if (BindingContext is SL_Models.SL_Note note)
+			File.WriteAllText(note.Filename, TextEditor.Text);
 
-        TextEditor.Text = string.Empty;
-    }
+		await Shell.Current.GoToAsync("..");
+	}
+
+	private async void DeleteButton_Clicked(object sender, EventArgs e)
+	{
+		if (BindingContext is SL_Models.SL_Note note)
+		{
+			// Delete the file.
+			if (File.Exists(note.Filename))
+				File.Delete(note.Filename);
+		}
+
+		await Shell.Current.GoToAsync("..");
+	}
 
 	private void LoadNote(string fileName)
 	{
